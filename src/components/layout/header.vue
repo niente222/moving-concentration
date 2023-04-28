@@ -3,8 +3,13 @@
       <div class="site-header__wrapper">
         <a href="/select" class="title">動く神経衰弱</a>
         <div class="header-link-component">
-          <a href="/login" class="header-link">ログイン</a>
-          <a href="/assigned" class="header-link">新規登録</a>
+          <div v-if="isLoginFlg">
+            <a href='#' @click="logout" class="header-link" >ログアウト</a>
+          </div>
+          <div v-else>
+            <a href="/login" class="header-link" >ログイン</a>
+            <a href="/assigned" class="header-link" >新規登録</a>
+          </div>
         </div>
       </div>
     </header>
@@ -22,3 +27,23 @@
     margin-right: 10px;
   }
 </style>
+
+<script>
+  import {isLogin} from '@/assets/js/util.js';
+  export default {
+    computed: {
+      isLoginFlg() {
+        return this.$store.state.isLoginFlg;
+      },
+    },
+    methods: {
+      logout() {
+        //ログイン時に保持したセッションストレージをクリア
+        sessionStorage.clear()
+
+        // ミューテーションを呼び出して、ストアのisLoginFlgを更新
+        this.$store.commit("setIsLoginFlg", isLogin());
+      },
+    },
+  };
+</script>
