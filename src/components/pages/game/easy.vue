@@ -1,13 +1,19 @@
 <template>
-  <div id="game-board">
-  <div id="turn">{{ displayedTurn }}</div>
-    <div
-      v-for="(card, index) in displayedCards"
-      :key="index"
-      class="card"
-      :data-card-id="card.id"
-      @click="onCardClick"
-    ></div>
+  <div id="screen">
+    <div id="game-board">
+      <div id="turn">{{ displayedTurn }}</div>
+        <div
+          v-for="(card, index) in displayedCards"
+          :key="index"
+          class="card"
+          :class="{ 'is-flipped': card.isFlipped }"
+          :data-card-id="card.id"
+          @click="onCardClick"
+        >
+          <div class="card__face card__face--back"></div>
+          <div class="card__face card__face--front"></div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -33,20 +39,16 @@ export default {
   },
   async mounted() {
     //ゲーム開始
-    console.log(sessionStorage.getItem(consts.RES_TOKEN));
     
     //カード配列生成
     shuffledCards = util.shuffle(shuffledCards);
 
-    //採番カードリストを生成
+    //表示用カードリストを生成
     for (let i = 0; i < shuffledCards.length; i++) {
-      this.displayedCards.push({ id: i , visible: true });
+      this.displayedCards.push({ id: i , isFlipped: false });
     }
 
     //初期表示
-    //UIに情報をセットする
-    //現在のターン数
-    //採番カードリストの配置
 
     //ゲーム開始演出
 
@@ -57,21 +59,26 @@ export default {
 
       if (this.firstCard === null) {
         this.firstCard = cardElement;
-        cardElement.style.backgroundColor = "red";
+        this.firstCard.querySelector('.card__face--front').textContent = shuffledCards[this.firstCard.getAttribute('data-card-id')].number;
+        this.firstCard.classList.add('is-flipped')
       } else if (this.secondCard === null && cardElement !== this.firstCard) {
         this.secondCard = cardElement;
-        cardElement.style.backgroundColor = "red";
+        this.secondCard.querySelector('.card__face--front').textContent = shuffledCards[this.secondCard.getAttribute('data-card-id')].number;
+        this.secondCard.classList.add('is-flipped')
 
         if (shuffledCards[this.firstCard.getAttribute('data-card-id')].number 
               === shuffledCards[this.secondCard.getAttribute('data-card-id')].number) {
 
-          this.firstCard.style.display = 'none';
-          this.secondCard.style.display = 'none';
-          this.firstCard = null;
-          this.secondCard = null;
+              setTimeout(() => {
+                this.firstCard.style.opacity  = 0;
+                this.secondCard.style.opacity  = 0;
+                this.firstCard = null;
+                this.secondCard = null;
 
-          gettingCard = gettingCard + 2;
-
+                gettingCard = gettingCard + 2;
+              },
+              1000);
+          
           if(gettingCard === shuffledCards.length){
             console.log('game clear!');
 
@@ -85,8 +92,10 @@ export default {
           }
         } else {
           setTimeout(() => {
-            this.firstCard.style.backgroundColor = "gray";
-            this.secondCard.style.backgroundColor = "gray";
+            this.firstCard.querySelector('.card__face--front').textContent = "";
+            this.secondCard.querySelector('.card__face--front').textContent = "";
+            this.firstCard.classList.remove('is-flipped')
+            this.secondCard.classList.remove('is-flipped')
             this.firstCard = null;
             this.secondCard = null;
           },
@@ -101,11 +110,65 @@ export default {
 </script>
 
 <style>
+#screen {
+  height: 1000px;
+  background-color: black;
+}
+
+#game-board {
+  height: 80%;
+  width: 80%;
+  background-color: skyblue;
+}
+
 .card {
   width: 100px;
   height: 100px;
-  background-color: gray;
+  perspective: 1000px;
+  position: relative;
   display: inline-block;
   margin: 10px;
+  cursor: pointer;
+  animation: moveUpDown 2s infinite;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card__face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  pointer-events: none;
+}
+
+.card__face--back {
+  background-color: gray;
+}
+
+.card__face--front {
+  background-color: red;
+  text-align:center;
+  line-height:100px;
+  transform: rotateY(180deg);
+}
+
+.card.is-flipped .card__face--back {
+  transform: rotateY(180deg);
+}
+
+.card.is-flipped .card__face--front {
+  transform: rotateY(0);
 }
 </style>
