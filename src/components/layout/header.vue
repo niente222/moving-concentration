@@ -1,7 +1,7 @@
 <template>
     <header class="site-header">
       <div class="site-header__wrapper">
-        <a href="/select" class="title">動く神経衰弱</a>
+        <a href="/game/select" class="title">動く神経衰弱</a>
         <div class="header-link-component">
           <div v-if="isLoginFlg">
             <a href='#' @click="logout" class="header-link" >ログアウト</a>
@@ -35,6 +35,10 @@
       isLoginFlg() {
         return this.$store.state.isLoginFlg;
       },
+    },  
+    mounted() {
+      // ミューテーションを呼び出して、ストアのisLoginFlgを更新
+      this.$store.commit("setIsLoginFlg", isLogin());
     },
     methods: {
       logout() {

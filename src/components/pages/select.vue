@@ -1,6 +1,6 @@
 <template>
   <h1>難易度選択</h1>
-  <button id="unlockButton" @click="handleClick">数字を解除する</button>
+    <a href="/game/easy" class="header-link" >EASY</a>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
     //unlockButton クリック時処理
     methods: {
       handleClick() {
-        console.log('isLoggedIn: ' + isLogin());
+        
       },
     },
   }

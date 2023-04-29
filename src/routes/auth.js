@@ -66,7 +66,7 @@ router.post('/login', async (req, res) => {
     const loginUser = await User.getUserId(req.body.userId);
   
     if(loginUser === null){
-      validationMessage.push(consts.validMessageLoginFailure);
+      validationMessage.push(consts.VALID_MESSAGE_LOGIN_FAILURE);
       util.sendErrorResponse(res, 'Your message here', validationMessage);
   
       return;
@@ -76,7 +76,7 @@ router.post('/login', async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, loginUser.password);
   
     if (!validPassword) {
-      validationMessage.push(consts.validMessageLoginFailure);
+      validationMessage.push(consts.VALID_MESSAGE_LOGIN_FAILURE);
       util.sendErrorResponse(res, 'Your message here', validationMessage);
     }else{
       //ログイン成功
@@ -84,7 +84,7 @@ router.post('/login', async (req, res) => {
       res.json({
         success: true,
         message: 'Your message here',
-        user_id: loginUser.USER_ID,
+        user_id: loginUser.userId,
         token:loginUser.PASSWORD
       });
     }

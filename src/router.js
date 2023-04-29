@@ -2,14 +2,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import select from '@/components/pages/select.vue'
 import login from '@/components/pages/login.vue'
 import assigned from '@/components/pages/assigned.vue'
-import game_low from '@/components/pages/game/low.vue'
+import game_easy from '@/components/pages/game/easy.vue'
 
 const routes = [
   { path: '/', name: 'select', component: select },
-  { path: '/select', name: 'select', component: select },
+  { path: '/game/select', name: 'select', component: select },
   { path: '/login', name: 'login', component: login },
   { path: '/assigned', name: 'assigned', component: assigned },
-  { path: '/game/low', name: 'game_low', component: game_low },
+  { path: '/game/easy', name: 'easy', component: game_easy },
 ]
 
 const router = createRouter({

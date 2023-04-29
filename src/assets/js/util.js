@@ -2,7 +2,7 @@ import * as consts from './const.js';
 
 //ログイン判定
 export function isLogin() {
-    const token = sessionStorage.getItem(consts.RES_TOKEN);
+    const token = sessionStorage.getItem(consts.RES_USER_ID);
     return token !== null && token !== '';
   }
 
@@ -17,4 +17,13 @@ export function sendErrorResponse(res, message, validMessage) {
     message: message,
     validMessage: validMessage
   });
+}
+
+//配列の要素の順番をシャッフル
+export function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }

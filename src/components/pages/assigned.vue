@@ -48,12 +48,12 @@
             //ローカルストレージにトークンを保存
             sessionStorage.setItem(RES_USER_ID, response.data.user_id);
             sessionStorage.setItem(RES_TOKEN, response.data.token);
-
+            
             // ミューテーションを呼び出して、ストアのisLoginFlgを更新
             this.$store.commit("setIsLoginFlg", true);
 
             //セレクト画面にリダイレクト
-            this.$router.push("/select");
+            this.$router.push("/game/select");
 
           } else {
             // エラーメッセージを表示するなど、登録失敗時の処理を実装

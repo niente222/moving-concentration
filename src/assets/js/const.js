@@ -1,10 +1,10 @@
-//レスポンスキー
+//------------レスポンスキー-------------------------------------------------------
 //ユーザーID
 export const RES_USER_ID = 'user_id';
 //トークン
 export const RES_TOKEN = 'token';
 
-//入力チェックエラーメッセージ
+//------------入力チェックエラーメッセージ-------------------------------------------
 //ユーザーID
 export const VALID_USER_ID = 'ユーザーID';
 
@@ -32,6 +32,19 @@ export const greetingValidMessageDuplication = (colName) => {
     return `入力された${colName}はすでに使用済みです`;
   };
 
-//ログイン失敗メッセージ生成
+//------------ログイン失敗メッセージ生成
 //ユーザーIDが存在しない、パスワードが違うなど
-export const validMessageLoginFailure = `ログインに失敗しました`;
+export const VALID_MESSAGE_LOGIN_FAILURE = `ログインに失敗しました`;
+
+
+//------------ゲームの難易度------------------------------------------
+export const GAME_LEVEL_EASY = `EASY`;
+
+//------------初期カード配列------------------------------------------
+//EASY
+export const EASY_CARDS_ARR = [
+  { number: "1" },
+  { number: "1" },
+  { number: "2" },
+  { number: "2" },
+];
