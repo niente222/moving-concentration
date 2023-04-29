@@ -10,3 +10,11 @@ export function isLogin() {
 export  function isEmpty(obj){
     return !Object.keys(obj).length;
   }
+
+export function sendErrorResponse(res, message, validMessage) {
+  res.json({
+    success: false,
+    message: message,
+    validMessage: validMessage
+  });
+}

@@ -29,7 +29,7 @@
     methods: {
       async submitForm() {
         try {
-          const response = await axios.post("http://localhost:3000/assigned", {
+          const response = await axios.post("http://localhost:3000/auth/assigned", {
             userId: this.userId,
             password: this.password,
           });
