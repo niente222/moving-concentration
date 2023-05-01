@@ -43,8 +43,21 @@ export const GAME_LEVEL_EASY = `EASY`;
 //------------初期カード配列------------------------------------------
 //EASY
 export const EASY_CARDS_ARR = [
-  { number: "1" },
+  { number: "1", posX: 100 , posY: 100 , speed: 1 },
+  { number: "1", posX: 200 , posY: 100 , speed: 1 },
+  { number: "2", posX: 100 , posY: 250 , speed: 1 },
+  { number: "2", posX: 200 , posY: 250 , speed: 1 },
+];
+
+
+//NOMAL
+export const NOMAL_CARDS_ARR = [
+  { number: "1"},
   { number: "1" },
   { number: "2" },
   { number: "2" },
+  { number: "3" },
+  { number: "3" },
+  { number: "4" },
+  { number: "4" },
 ];

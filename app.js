@@ -3,6 +3,7 @@ import express from 'express';
 import cors from "cors";
 import authRoutes from './src/routes/auth.js';
 import gameRoutes from './src/routes/game.js';
+import rankingRoutes from './src/routes/ranking.js';
 
 dotenv.config();
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/game', gameRoutes);
+app.use('/ranking', rankingRoutes);
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

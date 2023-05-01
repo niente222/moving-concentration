@@ -1,6 +1,10 @@
 <template>
   <h1>難易度選択</h1>
+    <a href="/ranking" class="header-link" >ランキング</a>
+    <br>
     <a href="/game/easy" class="header-link" >EASY</a>
+    <br>
+    <a href="/game/hard" class="header-link" >HARD</a>
 </template>
 
 <script>

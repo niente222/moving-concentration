@@ -1,7 +1,41 @@
+@font-face {
+  font-family: 'toroman';
+  src: url('@/assets/fonts/toroman.ttf') format('truetype');
+}
+
 :root {
-    --header-footer-color: #b33e5c;
+    --header-footer-color: #DD0000;
   }
 
 body {
     font-family: Arial, sans-serif;
+}
+
+#screen {
+  height: 500px;
+  background-color: rgb(191, 255, 188);
+}
+
+#title-text {
+  text-align:center;
+  font-size: 20px;
+  font-family: 'toroman';
+}
+
+#turn-text {
+  text-align:center;
+  font-size: 80px;
+  font-family: 'toroman';
+}
+
+#game-board {
+  height: 400px;
+  width: 400px;
+  position: relative;
+  background-color: skyblue;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 10px;
+  margin: auto;
 }
