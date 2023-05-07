@@ -12,7 +12,7 @@ body {
 }
 
 #screen {
-  height: 500px;
+  height: auto;
   background-color: rgb(191, 255, 188);
 }
 
@@ -28,14 +28,3 @@ body {
   font-family: 'toroman';
 }
 
-#game-board {
-  height: 400px;
-  width: 400px;
-  position: relative;
-  background-color: skyblue;
-  display: grid;
-  grid-template-columns: repeat(2, 100px);
-  grid-template-rows: repeat(2, 100px);
-  grid-gap: 10px;
-  margin: auto;
-}

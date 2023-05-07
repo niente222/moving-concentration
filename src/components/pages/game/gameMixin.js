@@ -34,30 +34,36 @@ export default {
     // ゲーム開始演出
   },
   methods: {
+    //カードクリック時処理
     async onCardClick(e) {
       const cardElement = e.target;
       console.log(gettingCard);
 
       if (this.firstCard === null) {
+        //一枚目のカード選択時
         this.firstCard = cardElement;
         this.firstCard.querySelector('.card__face--front').textContent = shuffledCards[this.firstCard.getAttribute('data-card-id')].number;
         this.firstCard.classList.add('is-flipped')
       } else if (this.secondCard === null && cardElement !== this.firstCard) {
+        //二枚目のカード選択時
         this.secondCard = cardElement;
         this.secondCard.querySelector('.card__face--front').textContent = shuffledCards[this.secondCard.getAttribute('data-card-id')].number;
         this.secondCard.classList.add('is-flipped')
 
+        //一枚目と二枚目のカードの数字が一致した場合
         if (shuffledCards[this.firstCard.getAttribute('data-card-id')].number 
               === shuffledCards[this.secondCard.getAttribute('data-card-id')].number) {
 
               setTimeout(() => {
-                this.firstCard.style.opacity  = 0;
-                this.secondCard.style.opacity  = 0;
+                this.playMatchedCardAnimation(this.firstCard);
+                this.playMatchedCardAnimation(this.secondCard);
                 this.firstCard = null;
                 this.secondCard = null;
 
                 gettingCard = gettingCard + 2;
 
+
+                //ゲームクリア
                 if(gettingCard === shuffledCards.length){
                     console.log('game clear!');
         
@@ -88,5 +94,16 @@ export default {
         
       }
     },
+    //カードがそろった時のアニメーションを付与する関数
+    playMatchedCardAnimation(cardElement) {
+      cardElement.classList.add("matched-card");
+    
+      // アニメーションが終了したらクラスを削除
+      cardElement.addEventListener("animationend", () => {
+        cardElement.classList.remove("matched-card");
+        cardElement.style.opacity  = 0;
+        cardElement.parentNode.remove();
+      });
+    }
   },
 };
