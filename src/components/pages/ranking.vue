@@ -15,6 +15,7 @@
         <p><span class="label"></span> {{ index + 1 }}位</p>
         <p><span class="label">Name:</span> {{ rank.USER_ID }}</p>
         <p><span class="label">Turns:</span> {{ rank.TURNS }}</p>
+        <p><span class="label">Time:</span> {{ rank.CLEAR_TIME }}</p>
         <p><span class="label">Date:</span> {{ formatDate(rank.INSDATE) }}</p>
       </div>
     </div>
@@ -40,14 +41,12 @@ export default {
   },
   async mounted() {
     try {
-        const response = await axios.post("http://localhost:3000/ranking");
-        
-        if (response.data.success) {
-          dataLake = response.data.ranking_data;
+        dataLake = await util.getDataLake();
+        if (dataLake) {
           this.changeDifficulty(consts.GAME_LEVEL_EASY);
           } else {
             // エラーメッセージを表示するなど、登録失敗時の処理を実装
-            console.error("ユーザー登録に失敗しました。");
+            console.error("データの取得に失敗しました。");
           }
       } catch (error) {
         console.error('submitForm error:', error);
@@ -65,6 +64,7 @@ export default {
       this.rankingData = dataLake
         .filter(game => game.GAME_LEVEL === difficulty)
         .sort((a, b) => a.TURNS - b.TURNS)
+        .sort((a, b) => a.CLEAR_TIME - b.CLEAR_TIME)
         .sort((a, b) => a.INSDATE - b.INSDATE)
         .slice(0, 100);
     },

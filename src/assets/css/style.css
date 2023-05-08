@@ -16,6 +16,10 @@ body {
   background-color: rgb(191, 255, 188);
 }
 
+#info-container {
+  display: flex;
+}
+
 #title-text {
   text-align:center;
   font-size: 20px;

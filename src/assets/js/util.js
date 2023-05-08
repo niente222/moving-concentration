@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as consts from './const.js';
 
 //ログイン判定
@@ -37,4 +38,15 @@ export function formatDate(date) {
   const minutes = String(d.getMinutes()).padStart(2, '0');
 
   return `${year}/${month}/${day} ${hours}:${minutes}`;
+}
+
+export async function getDataLake(){
+  const response = await axios.post("http://localhost:3000/dataLake/getDataLake");
+        
+  if (response.data.success) {
+    return response.data.ranking_data;
+  } else {
+    console.error("データの取得に失敗しました。");
+    return null
+  }
 }

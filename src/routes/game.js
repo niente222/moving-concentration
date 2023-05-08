@@ -11,8 +11,9 @@ const router = express.Router();
 router.post('/clear', async (req, res) => {
 
     //受信したユーザーIDと難易度をもとにGAMESテーブルにデータ追加
-    const data = [req.body.userId,req.body.gameLevel,req.body.turn];
-    const sql = 'INSERT INTO GAMES_T (USER_ID, GAME_LEVEL, TURNS, INSDATE, UPDDATE) VALUES (?, ?, ?, NOW(), NOW())';
+                    console.log(req.body.clearTime);
+    const data = [req.body.userId,req.body.gameLevel,req.body.turn,req.body.clearTime];
+    const sql = 'INSERT INTO GAMES_T (USER_ID, GAME_LEVEL, TURNS, CLEAR_TIME, INSDATE, UPDDATE) VALUES (?, ?, ?, ?, NOW(), NOW())';
 
     db.query(sql, data, (err, result) => {
         if (err) {
