@@ -7,6 +7,7 @@ import '@/assets/css/cards/card.css'
 import '@/assets/css/header.css'
 import '@/assets/css/footer.css'
 import '@/assets/css/ranking.css'
+import '@/assets/css/game.css'
 
 import * as consts from "@/assets/js/const.js";
 import * as util from "@/assets/js/util.js";

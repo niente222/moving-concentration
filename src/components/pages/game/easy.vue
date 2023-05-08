@@ -3,11 +3,20 @@
     <div id="info-container">
       <div id="title-text">EASY 1</div>
       <div id="my-best-text">自己ベスト： {{ myBestTurn }}</div>
-      <div id="my-best-text">一位： {{ bestTurn }}</div>
+      <div id="best-text">一位： {{ bestTurn }}</div>
     </div>
     <div id="turn-text">TURN {{ displayedTurn }}</div>
     <div id="timer">{{ timerDisplay }}</div>
     <div id="game-board">
+      <div id="overlay" v-show="isOverlayVisible" @click="startGame">
+        <div id="start-message">画面をクリックしてスタート</div>
+      </div>
+      <div id="result" v-show="isResultVisible">
+        <div id="result-content">
+          <p>ターン数: {{ displayedTurn }}</p>
+          <p>クリアタイム: {{ timerDisplay }}</p>
+        </div>
+      </div>
       <div id="move-box">
         <div
           v-for="(card, index) in displayedCards"

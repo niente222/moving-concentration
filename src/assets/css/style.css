@@ -10,25 +10,3 @@
 body {
     font-family: Arial, sans-serif;
 }
-
-#screen {
-  height: auto;
-  background-color: rgb(191, 255, 188);
-}
-
-#info-container {
-  display: flex;
-}
-
-#title-text {
-  text-align:center;
-  font-size: 20px;
-  font-family: 'toroman';
-}
-
-#turn-text {
-  text-align:center;
-  font-size: 80px;
-  font-family: 'toroman';
-}
-

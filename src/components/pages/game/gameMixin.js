@@ -17,6 +17,8 @@ export default {
   data() {
     return {
       //ゲーム部分実装に使用
+      isOverlayVisible: true,
+      isResultVisible: false,
       displayedCards: [],
       firstCard: null,
       secondCard: null,
@@ -48,13 +50,15 @@ export default {
     for (let i = 0; i < shuffledCards.length; i++) {
       this.displayedCards.push({ id: i , isFlipped: false });
     }
-
-    // 初期表示
-    // ゲーム開始演出
-    // ゲームが始まったときにタイマーを開始する
-    this.startTimer();
   },
   methods: {
+    startGame() {
+      this.isOverlayVisible = false;
+
+      // ゲーム開始演出
+      // ゲームが始まったときにタイマーを開始する
+      this.startTimer();
+    },
     //カードクリック時処理
     async onCardClick(e) {
       const cardElement = e.target;
@@ -82,11 +86,10 @@ export default {
 
                 gettingCard = gettingCard + 2;
 
-
                 //ゲームクリア
                 if(gettingCard === shuffledCards.length){
                     console.log('game clear!');
-                    this.stopTimer()
+                    this.stopTimer();
         
                     const userId = sessionStorage.getItem(consts.RES_USER_ID);
                     const gameLevel = consts.GAME_LEVEL_EASY;
@@ -96,6 +99,8 @@ export default {
                             turn: turn,
                             clearTime: this.timerDisplay
                           });
+
+                    setTimeout(() => {this.isResultVisible = true;},1000);
                   }else{
                     this.displayedTurn = ++turn;
                   }
@@ -157,7 +162,7 @@ export default {
   
       return filteredData.length === 0
         ? "記録なし"
-        : filteredData[0].TURNS + "ターン  タイム" + filteredData[0].CLEAR_TIME;
+        : filteredData[0].TURNS + "ターン  タイム " + filteredData[0].CLEAR_TIME;
     },
     //タイマー
     startTimer() {
