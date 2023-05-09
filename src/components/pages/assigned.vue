@@ -1,37 +1,31 @@
 <template>
-  <h1>新規登録</h1>
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="user-id">ユーザーID:</label>
-      <input type="text" id="user-id" v-model="userId" required />
-    </div>
-    <div>
-      <label for="password">パスワード:</label>
-      <input type="password" id="password" v-model="password" required />
-    </div>
-    <p v-if="errorMessage">{{ errorMessage }}</p>
-    <button type="submit">登録</button>
-  </form>
+  <AccountSubmitForm 
+    title="新規登録" 
+    buttonText="登録" 
+    @submit="submitForm" 
+  />
 </template>
 
 <script>
+  import AccountSubmitForm from '@/components/common/accountSubmitForm.vue';
   import axios from "axios";
   import {RES_USER_ID,RES_TOKEN} from '@/assets/js/const.js';
   export default {
     name: 'assigned',
+    components: {
+      AccountSubmitForm
+    },
     data() {
       return {
-        userId: "",
-        password: "",
         errorMessage: "",
       };
     },
     methods: {
-      async submitForm() {
+      async submitForm(payload) {
         try {
           const response = await axios.post("http://localhost:3000/auth/assigned", {
-            userId: this.userId,
-            password: this.password,
+            userId: payload.userId,
+            password: payload.password,
           });
 
           //入力チェックエラーがある場合、エラーメッセージを設定し処理を終了
