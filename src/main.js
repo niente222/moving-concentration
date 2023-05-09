@@ -9,10 +9,6 @@ import '@/assets/css/footer.css'
 import '@/assets/css/ranking.css'
 import '@/assets/css/game.css'
 
-import * as consts from "@/assets/js/const.js";
-import * as util from "@/assets/js/util.js";
-import * as validation from "@/assets/js/validation.js";
-
 const app = createApp(App)
 app.use(router)
 app.use(store);

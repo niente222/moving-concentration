@@ -25,10 +25,10 @@ export default {
 
       //info-UI用
       displayedTurn: 1,
-      myBestTurn: 3,
-      myBestTime: 3,
-      bestTurn: 3,
-      bestTime: 3,
+      myBestTurn: 0,
+      myBestTime: 0,
+      bestTurn: 0,
+      bestTime: 0,
 
       //タイマー処理に使用
       startTime: null,
@@ -38,7 +38,6 @@ export default {
     };
   },
   async mounted() {
-
     //info-UI設定
     this.setUIs(consts.GAME_LEVEL_EASY);
 
@@ -53,10 +52,9 @@ export default {
   },
   methods: {
     startGame() {
-      this.isOverlayVisible = false;
-
       // ゲーム開始演出
       // ゲームが始まったときにタイマーを開始する
+      this.isOverlayVisible = false;
       this.startTimer();
     },
     //カードクリック時処理

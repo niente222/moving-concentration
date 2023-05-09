@@ -1,22 +1,20 @@
 <template>
   <div id="screen">
-    <div id="info-container">
-      <div id="title-text">EASY 1</div>
-      <div id="my-best-text">自己ベスト： {{ myBestTurn }}</div>
-      <div id="best-text">一位： {{ bestTurn }}</div>
-    </div>
-    <div id="turn-text">TURN {{ displayedTurn }}</div>
-    <div id="timer">{{ timerDisplay }}</div>
+    <GameInfo 
+      :title="difference"
+      :myBestTurn="myBestTurn"
+      :bestTurn="bestTurn"
+      :displayedTurn="displayedTurn"
+      :timerDisplay="timerDisplay"
+    />
     <div id="game-board">
-      <div id="overlay" v-show="isOverlayVisible" @click="startGame">
-        <div id="start-message">画面をクリックしてスタート</div>
-      </div>
-      <div id="result" v-show="isResultVisible">
-        <div id="result-content">
-          <p>ターン数: {{ displayedTurn }}</p>
-          <p>クリアタイム: {{ timerDisplay }}</p>
-        </div>
-      </div>
+      <GameControlUI 
+      :isOverlayVisible="isOverlayVisible"
+      :startGame="startGame"
+      :isResultVisible="isResultVisible"
+      :displayedTurn="displayedTurn"
+      :timerDisplay="timerDisplay"
+    />
       <div id="move-box">
         <div
           v-for="(card, index) in displayedCards"
@@ -42,11 +40,15 @@
 <script>
 import CardGameMixin from "@/components/pages/game/gameMixin.js";
 import * as consts from "@/assets/js/const.js";
+import GameInfo from '@/components/common/game/gameInfoUI.vue'
+import GameControlUI from '@/components/common/game/gameControlUI.vue'
 
 export default {
   mixins: [CardGameMixin],
+  components: {GameInfo, GameControlUI},
   data() {
     return {
+      difference: consts.GAME_LEVEL_EASY,
       cardsArray: consts.EASY_CARDS_ARR,
       animationDelays: consts.EASY_ANIM_DILAYS,
     };
@@ -55,16 +57,7 @@ export default {
 </script>
 
 <style>
-#game-board {
-  height: 700px;
-  width: 700px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-color: #704214;
-}
-
+/* この難易度固有のスタイルを記載 */
 #move-box {
   height: 400px;
   width: 400px;
