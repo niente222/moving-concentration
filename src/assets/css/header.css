@@ -4,13 +4,24 @@
 */
 .my-site {
     font-weight: bold;
-    font-size: 20px; }
+    font-size: 20px; 
+}
 
 .site-header {
-position: relative;
-background-color: var(--header-footer-color); }
+    position: relative;
+    background-color: var(--header-footer-color); 
+}
 
 .site-header__wrapper {
-padding-top: 1rem;
-padding-bottom: 1rem; }
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
+}
 
+.header-link {
+    transition: color 0.3s ease; 
+    color: #ccc; 
+}
+
+.header-link:hover {
+    color: #fffb00; 
+}

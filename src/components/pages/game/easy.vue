@@ -56,13 +56,13 @@ export default {
 
 <style>
 #game-board {
-  height: 800px;
-  width: 800px;
+  height: 700px;
+  width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: skyblue;
+  background-color: #704214;
 }
 
 #move-box {

@@ -4,9 +4,12 @@
 }
 
 :root {
-    --header-footer-color: #DD0000;
+    --header-footer-color: #704214;
+    --background-color: #f2e5d5;
+    --side-color: #f2e5d5;
   }
 
 body {
     font-family: Arial, sans-serif;
+    background-color: var(--background-color); 
 }

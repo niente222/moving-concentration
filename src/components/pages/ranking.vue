@@ -2,9 +2,21 @@
   <div class="ranking-page">
     <h1>ランキング</h1>
     <div class="button-container">
-      <button @click="changeDifficulty(GAME_LEVEL_EASY)">Easy</button>
-      <button @click="changeDifficulty(GAME_LEVEL_NOMAL)">Medium</button>
-      <button @click="changeDifficulty(GAME_LEVEL_HARD)">Hard</button>
+      <div class="button-row">
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Easy 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Easy 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Easy 3</button>
+      </div>
+      <div class="button-row">
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Normal 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Normal 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Normal 3</button>
+      </div>
+      <div class="button-row">
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Hard 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Hard 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Hard 3</button>
+      </div>
     </div>
     <div class="ranking-container">
       <div
@@ -12,11 +24,14 @@
           :key="index"
           class="ranking-panel"
       >
-        <p><span class="label"></span> {{ index + 1 }}位</p>
-        <p><span class="label">Name:</span> {{ rank.USER_ID }}</p>
-        <p><span class="label">Turns:</span> {{ rank.TURNS }}</p>
-        <p><span class="label">Time:</span> {{ rank.CLEAR_TIME }}</p>
-        <p><span class="label">Date:</span> {{ formatDate(rank.INSDATE) }}</p>
+        <div class="ranking-header">
+            <p><span class="rank-text"></span> {{ index + 1 }}位  {{ rank.USER_ID }}</p>
+        </div>
+        <div class="ranking-body">
+          <p class="turns-text">Turns: {{ rank.TURNS }}</p>
+          <p class="clear-time-text">Time: {{ rank.CLEAR_TIME }}</p>
+          <p class="datetime-text"> {{ formatDate(rank.INSDATE) }}</p>
+        </div>
       </div>
     </div>
   </div>

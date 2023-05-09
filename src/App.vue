@@ -35,7 +35,7 @@
 .left-sidebar,
 .right-sidebar {
   width: 20%;
-  background-color: aquamarine;
+  background-color: var(--side-color); 
 }
 
 /* 余白の調整 */

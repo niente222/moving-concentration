@@ -4,6 +4,8 @@
         <a href="/game/select" class="title">動く神経衰弱</a>
         <div class="header-link-component">
           <div v-if="isLoginFlg">
+            <a href='/game/select'  class="header-link" >プレイ</a>
+            <a href='/ranking'  class="header-link" >ランキング</a>
             <a href='#' @click="logout" class="header-link" >ログアウト</a>
           </div>
           <div v-else>
