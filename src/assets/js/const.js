@@ -9,7 +9,7 @@ export const RES_TOKEN = 'token';
 export const VALID_USER_ID = 'ユーザーID';
 
 //ユーザーID 最大桁数
-export const MAX_LENGTH_USER_ID = 20;
+export const MAX_LENGTH_USER_ID = 12;
 
 //ユーザーID
 export const VALID_PASSWORD = 'パスワード';
