@@ -17,19 +17,6 @@
     </header>
 </template>
 
-<style scoped>
-.site-header__wrapper{
-  display: flex;
-}
-  .header-link-component{
-    margin-left: auto;
-  }
-
-  .header-link{
-    margin-right: 10px;
-  }
-</style>
-
 <script>
   import {isLogin} from '@/assets/js/util.js';
   export default {

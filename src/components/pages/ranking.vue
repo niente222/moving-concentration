@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import * as util from '@/assets/js/util.js';
 import * as consts from "@/assets/js/const.js";
 
@@ -66,9 +65,6 @@ export default {
       } catch (error) {
         console.error('submitForm error:', error);
       }
-    },
-
-    created() {
     },
 
   methods: {

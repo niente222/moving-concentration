@@ -39,13 +39,6 @@
     grid-template-rows: auto auto;
     gap: 10px;
   }
-
-  .ranking-panels {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
-    gap: 10px;
-  }
   
   .ranking-panel:first-child {
     grid-column: 1 / span 4;

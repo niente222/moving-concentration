@@ -6,6 +6,7 @@ import '@/assets/css/style.css'
 import '@/assets/css/cards/card.css'
 import '@/assets/css/header.css'
 import '@/assets/css/footer.css'
+import '@/assets/css/select.css'
 import '@/assets/css/ranking.css'
 import '@/assets/css/game.css'
 

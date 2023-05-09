@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+  }
+  
+  .difficulty-selection {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .difficulty-level {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .difficulty-button {
+    background-color: #ddbb99;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 20px 34px;
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+  
+  .difficulty-button:hover {
+    background-color: #bbaa88;
+  }
