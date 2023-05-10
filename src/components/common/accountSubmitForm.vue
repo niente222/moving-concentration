@@ -1,18 +1,22 @@
 <template>
-    <h1>{{ title }}</h1>
-    <form @submit.prevent="submitForm">
+    <div>
+      <h1>{{ title }}</h1>
+      <form @submit.prevent="submitForm">
         <div>
-            <label for="user-id">ユーザーID:</label>
-            <input type="text" id="user-id" v-model="userId" required />
+          <label for="user-id">ユーザーID:</label>
+          <input type="text" id="user-id" v-model="userId" required />
         </div>
         <div>
-            <label for="password">パスワード:</label>
-            <input type="password" id="password" v-model="password" required />
+          <label for="password">パスワード:</label>
+          <input type="password" id="password" v-model="password" required />
         </div>
-        <p v-if="errorMessage">{{ errorMessage }}</p>
+        <div v-if="errorMessage.length > 0">
+            <p v-for="(message, index) in errorMessage" :key="index">{{ message }}</p>
+        </div>
         <button type="submit">{{ buttonText }}</button>
-    </form>
-</template>
+      </form>
+    </div>
+  </template>
 
 <script>
     export default {
@@ -24,18 +28,21 @@
             buttonText: {
                 type: String,
                 required: true
+            },
+            errorMessage: {
+                type: String, 
+                default: ""   
             }
         },
         data() {
             return {
                 userId: '',
                 password: '',
-                errorMessage: ''
             };
         },
         methods: {
             submitForm() {
-                this.$emit('submit', {
+                this.$emit('submitForm', {
                     userId: this.userId,
                     password: this.password
                 });

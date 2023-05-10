@@ -2,7 +2,8 @@
   <AccountSubmitForm 
     title="ログイン" 
     buttonText="ログイン" 
-    @submit="submitForm" 
+    @submitForm="submitForm"
+    :error-message="errorMessage"
   />
 </template>
 
@@ -18,7 +19,7 @@
     },
     data() {
       return {
-        errorMessage: "",
+        errorMessage: [],
       };
     },
     methods: {

@@ -2,7 +2,8 @@
   <AccountSubmitForm 
     title="新規登録" 
     buttonText="登録" 
-    @submit="submitForm" 
+    @submitForm="submitForm"
+    :error-message="errorMessage"
   />
 </template>
 
@@ -10,6 +11,7 @@
   import AccountSubmitForm from '@/components/common/accountSubmitForm.vue';
   import axios from "axios";
   import {RES_USER_ID,RES_TOKEN} from '@/assets/js/const.js';
+
   export default {
     name: 'assigned',
     components: {
@@ -17,7 +19,7 @@
     },
     data() {
       return {
-        errorMessage: "",
+        errorMessage: [],
       };
     },
     methods: {
@@ -30,8 +32,7 @@
 
           //入力チェックエラーがある場合、エラーメッセージを設定し処理を終了
           if(response.data.validMessage){
-            //★エラーメッセージが複数ある場合は全部出す？
-            this.errorMessage = response.data.validMessage[0];
+            this.errorMessage = response.data.validMessage;
             return;
           }
 
