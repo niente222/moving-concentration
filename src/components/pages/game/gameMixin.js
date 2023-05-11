@@ -76,20 +76,20 @@ export default {
         if (shuffledCards[this.firstCard.getAttribute('data-card-id')].number 
               === shuffledCards[this.secondCard.getAttribute('data-card-id')].number) {
 
+              gettingCard = gettingCard + 2;
+
               setTimeout(() => {
                 this.playMatchedCardAnimation(this.firstCard);
                 this.playMatchedCardAnimation(this.secondCard);
                 this.firstCard = null;
                 this.secondCard = null;
 
-                gettingCard = gettingCard + 2;
-
                 //ゲームクリア
-                if(gettingCard === shuffledCards.length){
+                if(gettingCard >= shuffledCards.length){
                     console.log('game clear!');
                     this.stopTimer();
         
-                    const userId = sessionStorage.getItem(consts.RES_USER_ID);
+                    const userId = sessionStorage.getItem(consts.RES_USER_ID) || "ゲストさん";
                     const gameLevel = consts.GAME_LEVEL_EASY;
                     const response = axios.post("http://localhost:3000/game/clear", {
                             userId: userId,

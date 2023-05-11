@@ -50,3 +50,8 @@ export async function getDataLake(){
     return null
   }
 }
+
+export function timeStringToSeconds(timeString) {
+  const [hours, minutes, seconds] = timeString.split(':').map(parseFloat);
+  return (hours * 3600) + (minutes * 60) + seconds;
+}

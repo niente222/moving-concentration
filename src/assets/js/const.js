@@ -39,6 +39,7 @@ export const VALID_MESSAGE_LOGIN_FAILURE = `ログインに失敗しました`;
 
 //------------ゲームの難易度------------------------------------------
 export const GAME_LEVEL_EASY = `EASY`;
+export const GAME_LEVEL_NOMAL = `NOMAL`;
 
 //------------初期カード配列------------------------------------------
 //EASY

@@ -7,6 +7,10 @@
           <div id="result-content">
               <p>ターン数: {{ displayedTurn }}</p>
               <p>クリアタイム: {{ timerDisplay }}</p>
+              <button class="difficulty-button" id="easy3" @click="reload">もう一度</button>
+              <router-link to="/game/select">
+                <button class="difficulty-button">難易度を変える</button>
+              </router-link>
           </div>
       </div>
   </div>
@@ -14,6 +18,11 @@
 
 <script>
   export default {
-    props: ['isOverlayVisible', 'startGame', 'isResultVisible', 'displayedTurn', 'timerDisplay'],
+    props: ['isOverlayVisible', 'startGame', 'isResultVisible', 'displayedTurn', 'timerDisplay', 'difference'],
+  methods: {
+    reload(){
+      location.reload();
+    }
+  }
   }
 </script>

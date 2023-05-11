@@ -18,9 +18,8 @@
 }
 
 .rank-select-button {
-  background-color: #ddbb99;
   border: none;
-  color: white;
+  color: #704214;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -31,6 +30,30 @@
   padding: 20px 34px;
   transition: 0.3s;
   border-radius: 5px;
+}
+
+.rank-select-easy-button {
+  background-color: #adffad;
+}
+
+.rank-select-easy-button:hover {
+  background-color: #7fff7f;
+}
+
+.rank-select-nomal-button {
+  background-color: #a3d1ff;
+}
+
+.rank-select-nomal-button:hover {
+  background-color: #7fbfff;
+}
+
+.rank-select-hard-button {
+  background-color: #ffb2b2;
+}
+
+.rank-select-hard-button:hover {
+  background-color: #ff7f7f;
 }
 
 .ranking-container {
@@ -81,7 +104,8 @@
 }
 
 .ranking-header {
-    font-size: 20px;
+    font-size: calc(0.5rem + 1vw);
+    font-size-adjust: 0.5;
     font-weight: bold;
     color: #704214;
     border-bottom: 1px solid #704214;

@@ -25,7 +25,7 @@
     transition: transform 0.6s;
     pointer-events: none;
     border-radius: 8px;
-    border: solid 5px #B8860B;
+    border: solid 5px #94CE90 ;
   }
   
   .card__face--back {

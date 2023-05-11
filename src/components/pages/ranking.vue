@@ -3,21 +3,22 @@
     <h1>ランキング</h1>
     <div class="button-container">
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Easy 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Easy 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Easy 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-easy-button">Easy 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-easy-button">Easy 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-easy-button">Easy 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Normal 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Normal 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Normal 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-nomal-button">Normal 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-nomal-button">Normal 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-nomal-button">Normal 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button">Hard 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button">Hard 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button">Hard 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-hard-button">Hard 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-hard-button">Hard 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-hard-button">Hard 3</button>
       </div>
     </div>
+    <p>{{ rankingTitle }}</p>
     <div class="ranking-container">
       <div
           v-for="(rank, index) in rankingData"
@@ -48,6 +49,7 @@ export default {
   data() {
     return {
       rankingData: [],
+      rankingTitle: '',
       GAME_LEVEL_EASY: consts.GAME_LEVEL_EASY,
       GAME_LEVEL_NOMAL: consts.GAME_LEVEL_NOMAL,
       GAME_LEVEL_HARD: consts.GAME_LEVEL_HARD
@@ -72,10 +74,16 @@ export default {
       return util.formatDate(date);
     },
     changeDifficulty(difficulty) {
+      this.rankingTitle = difficulty;
       this.rankingData = dataLake
         .filter(game => game.GAME_LEVEL === difficulty)
-        .sort((a, b) => a.TURNS - b.TURNS)
-        .sort((a, b) => a.CLEAR_TIME - b.CLEAR_TIME)
+        .sort((a, b) => {
+          if (a.TURNS === b.TURNS) {
+            return util.timeStringToSeconds(a.CLEAR_TIME) - util.timeStringToSeconds(b.CLEAR_TIME)
+          } else {
+            return a.TURNS - b.TURNS
+          }
+        })
         .sort((a, b) => a.INSDATE - b.INSDATE)
         .slice(0, 100);
     },

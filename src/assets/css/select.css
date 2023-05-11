@@ -16,9 +16,8 @@ h1 {
   }
   
   .difficulty-button {
-    background-color: #ddbb99;
     border: none;
-    color: white;
+    color: #704214;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -30,7 +29,27 @@ h1 {
     transition: 0.3s;
     border-radius: 5px;
   }
+
+  .difficulty-easy-button {
+    background-color: #adffad;
+  }
   
-  .difficulty-button:hover {
-    background-color: #bbaa88;
+  .difficulty-easy-button:hover {
+    background-color: #7fff7f;
+  }
+
+  .difficulty-nomal-button {
+    background-color: #a3d1ff;
+  }
+  
+  .difficulty-nomal-button:hover {
+    background-color: #7fbfff;
+  }
+
+  .difficulty-hard-button {
+    background-color: #ffb2b2;
+  }
+  
+  .difficulty-hard-button:hover {
+    background-color: #ff7f7f;
   }

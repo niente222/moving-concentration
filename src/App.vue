@@ -11,6 +11,7 @@
       </div>
     </div>
   </div>
+  <div id="twitter-timeline"></div>
   <myFooter />
 </template>
 
@@ -22,7 +23,14 @@
   components: { 
     myHeader,
     myFooter
-    }
+    },
+  mounted() {
+    let script = document.createElement('script')
+    script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    script.setAttribute('charset', 'utf-8')
+    script.setAttribute('async', '')
+    document.getElementById('twitter-timeline').appendChild(script)
+  }
   };
 </script>
 

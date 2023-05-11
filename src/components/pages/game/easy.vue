@@ -14,6 +14,7 @@
       :isResultVisible="isResultVisible"
       :displayedTurn="displayedTurn"
       :timerDisplay="timerDisplay"
+      :difference="difference"
     />
       <div id="move-box">
         <div
@@ -39,7 +40,7 @@
 
 <script>
 import CardGameMixin from "@/components/pages/game/gameMixin.js";
-import * as consts from "@/assets/js/const.js";
+import * as consts from '@/assets/js/const.js';
 import GameInfo from '@/components/common/game/gameInfoUI.vue'
 import GameControlUI from '@/components/common/game/gameControlUI.vue'
 
@@ -50,7 +51,6 @@ export default {
     return {
       difference: consts.GAME_LEVEL_EASY,
       cardsArray: consts.EASY_CARDS_ARR,
-      animationDelays: consts.EASY_ANIM_DILAYS,
     };
   },
 };
