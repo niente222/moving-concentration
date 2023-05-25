@@ -44,15 +44,15 @@ export default {
   components: { GameTemplate },
   data() {
     return {
-      difference: consts.GAME_LEVEL_EASY_2,
+      difference: consts.GAME_LEVEL_EASY_3,
     };
   },
   methods: {
     getDifference() {
-      return consts.GAME_LEVEL_EASY_2;
+      return consts.GAME_LEVEL_EASY_3;
     },
     getShuffleCards() {
-      return consts.EASY_2_CARDS_ARR;
+      return consts.EASY_3_CARDS_ARR;
     },
   },
 };
@@ -76,53 +76,71 @@ export default {
 .moving3,
 .moving4,
 .moving5,
-.moving6 {
+.moving6,
+.moving7,
+.moving8 {
   animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 
 .moving1 {
+  top: 0px;
   animation-name: moveClockwise1;
 }
 
 .moving2 {
-  right: 150px;
+  right: 0px;
   animation-name: moveClockwise2;
 }
 
 .moving3 {
-  bottom: 150px;
+  bottom: 0px;
   animation-name: moveClockwise3;
 }
 
 .moving4 {
   right: 0px;
-  top: 150px;
+  bottom: 0px;
   animation-name: moveClockwise4;
 }
 
 .moving5 {
-  left: 125px;
-  bottom: 25px;
+  left: 150px;
+  top: 150px;
   animation-name: moveClockwise5;
 }
 
 .moving6 {
-  right: 0px;
-  bottom: 25px;
+  right: 150px;
+  top: 150px;
   animation-name: moveClockwise6;
+}
+
+.moving7 {
+  left: 150px;
+  bottom: 150px;
+  animation-name: moveClockwise7;
+}
+
+.moving8 {
+  right: 150px;
+  bottom: 150px;
+  animation-name: moveClockwise8;
 }
 
 @keyframes moveClockwise1 {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(0) translateX(400px);
+  25% {
+    transform: translateY(0) translateX(525px);
   }
-  66% {
-    transform: translateY(400px) translateX(0px);
+  50% {
+    transform: translateY(525px) translateX(525px);
+  }
+  75% {
+    transform: translateY(525px) translateX(0);
   }
 }
 
@@ -130,11 +148,14 @@ export default {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(400px) translateX(-400px);
+  25% {
+    transform: translateY(0) translateX(-525px);
   }
-  66% {
-    transform: translateY(0) translateX(-400px);
+  50% {
+    transform: translateY(525px) translateX(-525px);
+  }
+  75% {
+    transform: translateY(525px) translateX(0);
   }
 }
 
@@ -142,11 +163,14 @@ export default {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(-400px) translateX(0);
+  25% {
+    transform: translateY(0) translateX(525px);
   }
-  66% {
-    transform: translateY(-400px) translateX(400px);
+  50% {
+    transform: translateY(-525px) translateX(525px);
+  }
+  75% {
+    transform: translateY(-525px) translateX(0);
   }
 }
 
@@ -154,11 +178,14 @@ export default {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(350px) translateX(0);
+  25% {
+    transform: translateY(0) translateX(-525px);
   }
-  66% {
-    transform: translateY(350px) translateX(-400px);
+  50% {
+    transform: translateY(-525px) translateX(-525px);
+  }
+  75% {
+    transform: translateY(-525px) translateX(0);
   }
 }
 
@@ -166,11 +193,14 @@ export default {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(-400px) translateX(400px);
+  25% {
+    transform: translateY(230px) translateX(0);
   }
-  66% {
-    transform: translateY(0) translateX(400px);
+  50% {
+    transform: translateY(230px) translateX(230px);
+  }
+  75% {
+    transform: translateY(0) translateX(230px);
   }
 }
 
@@ -178,11 +208,44 @@ export default {
   0%, 100% {
     transform: translateY(0) translateX(0);
   }
-  33% {
-    transform: translateY(0) translateX(-400px);
+  25% {
+    transform: translateY(230px) translateX(0);
   }
-  66% {
-    transform: translateY(-400px) translateX(0);
+  50% {
+    transform: translateY(230px) translateX(-230px);
+  }
+  75% {
+    transform: translateY(0) translateX(-230px);
+  }
+}
+
+@keyframes moveClockwise7 {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-230px) translateX(0);
+  }
+  50% {
+    transform: translateY(-230px) translateX(230px);
+  }
+  75% {
+    transform: translateY(0) translateX(230px);
+  }
+}
+
+@keyframes moveClockwise8 {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-230px) translateX(0);
+  }
+  50% {
+    transform: translateY(-230px) translateX(-230px);
+  }
+  75% {
+    transform: translateY(0) translateX(-230px);
   }
 }
 </style>

@@ -58,22 +58,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* この難易度固有のスタイルを記載 */
-#title-text {
-  color: #527558;
-  font-size: 60px; 
-  text-align: left;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
-  font-family: 'toroman';
-  stroke: 1px #333;
-}
-
-.card__face {
-  border: solid 5px #94CE90 ;
-}
-
 #move-box {
   height: 400px;
   width: 400px;
@@ -174,4 +160,14 @@ export default {
     transform: translateY(-280px) translateX(0);
   }
 }
+</style>
+
+<style>
+  #title-text {
+    color: #527558;
+  }
+
+  .card__face {
+    border: solid 5px #94CE90 ;
+  }
 </style>

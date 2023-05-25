@@ -5,17 +5,17 @@
       <div class="button-row">
         <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-easy-button">Easy 1</button>
         <button @click="changeDifficulty(GAME_LEVEL_EASY_2)" class="rank-select-button rank-select-easy-button">Easy 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-easy-button">Easy 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY_3)" class="rank-select-button rank-select-easy-button">Easy 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-nomal-button">Normal 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_1)" class="rank-select-button rank-select-nomal-button">Normal 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-nomal-button">Normal 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_1)" class="rank-select-button rank-select-nomal-button">Normal 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_2)" class="rank-select-button rank-select-nomal-button">Normal 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_3)" class="rank-select-button rank-select-nomal-button">Normal 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-hard-button">Hard 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_1)" class="rank-select-button rank-select-hard-button">Hard 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-hard-button">Hard 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-hard-button">Hard 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_2)" class="rank-select-button rank-select-hard-button">Hard 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_3)" class="rank-select-button rank-select-hard-button">Hard 3</button>
       </div>
     </div>
     <p>{{ rankingTitle }}</p>
@@ -52,8 +52,13 @@ export default {
       rankingTitle: '',
       GAME_LEVEL_EASY_1: consts.GAME_LEVEL_EASY_1,
       GAME_LEVEL_EASY_2: consts.GAME_LEVEL_EASY_2,
+      GAME_LEVEL_EASY_3: consts.GAME_LEVEL_EASY_3,
       GAME_LEVEL_NOMAL_1: consts.GAME_LEVEL_NOMAL_1,
-      GAME_LEVEL_HARD_1: consts.GAME_LEVEL_HARD_1
+      GAME_LEVEL_NOMAL_2: consts.GAME_LEVEL_NOMAL_2,
+      GAME_LEVEL_NOMAL_3: consts.GAME_LEVEL_NOMAL_3,
+      GAME_LEVEL_HARD_1: consts.GAME_LEVEL_HARD_1,
+      GAME_LEVEL_HARD_2: consts.GAME_LEVEL_HARD_2,
+      GAME_LEVEL_HARD_3: consts.GAME_LEVEL_HARD_3
     };
   },
   async mounted() {

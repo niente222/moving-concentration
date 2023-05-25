@@ -8,29 +8,29 @@
       <router-link to="/game/EASY2">
         <button class="difficulty-button difficulty-easy-button" id="easy2">EASY 2</button>
       </router-link>
-      <router-link to="/game/easy3">
+      <router-link to="/game/EASY3">
         <button class="difficulty-button difficulty-easy-button" id="easy3">EASY 3</button>
       </router-link>
     </div>
     <div class="difficulty-level">
-      <router-link to="/game/normal1">
+      <router-link to="/game/NOMAL1">
         <button class="difficulty-button difficulty-nomal-button" id="normal1">NORMAL 1</button>
       </router-link>
-      <router-link to="/game/normal2">
+      <router-link to="/game/NOMAL2">
         <button class="difficulty-button difficulty-nomal-button" id="normal2">NORMAL 2</button>
       </router-link>
-      <router-link to="/game/normal3">
+      <router-link to="/game/NOMAL3">
         <button class="difficulty-button difficulty-nomal-button" id="normal3">NORMAL 3</button>
       </router-link>
     </div>
     <div class="difficulty-level">
-      <router-link to="/game/hard1">
+      <router-link to="/game/HARD1">
         <button class="difficulty-button difficulty-hard-button" id="hard1">HARD 1</button>
       </router-link>
-      <router-link to="/game/hard2">
+      <router-link to="/game/HARD2">
         <button class="difficulty-button difficulty-hard-button" id="hard2">HARD 2</button>
       </router-link>
-      <router-link to="/game/hard3">
+      <router-link to="/game/HARD3">
         <button class="difficulty-button difficulty-hard-button" id="hard3">HARD 3</button>
       </router-link>
     </div>
