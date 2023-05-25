@@ -29,6 +29,7 @@ export default {
       myBestTime: 0,
       bestTurn: 0,
       bestTime: 0,
+      rankinMessage: 'aaa',
 
       //タイマー処理に使用
       startTime: null,
@@ -78,7 +79,7 @@ export default {
 
               gettingCard = gettingCard + 2;
 
-              setTimeout(() => {
+              setTimeout(async () => {
                 this.playMatchedCardAnimation(this.firstCard);
                 this.playMatchedCardAnimation(this.secondCard);
                 this.firstCard = null;
@@ -88,15 +89,28 @@ export default {
                 if(gettingCard >= shuffledCards.length){
                     console.log('game clear!');
                     this.stopTimer();
-        
+
                     const userId = sessionStorage.getItem(consts.RES_USER_ID) || "ゲストさん";
                     const gameLevel = consts.GAME_LEVEL_EASY;
-                    const response = axios.post("http://localhost:3000/game/clear", {
-                            userId: userId,
-                            gameLevel: gameLevel,
-                            turn: turn,
-                            clearTime: this.timerDisplay
-                          });
+                    try {
+                      const response = await axios.post("http://localhost:3000/game/clear", {
+                        userId: userId,
+                        gameLevel: gameLevel,
+                        turn: turn,
+                        clearTime: this.timerDisplay
+                      });
+                      
+                      //クリアスコアのランキングを算出
+                      let rankin = await util.getRankAtClear(userId,gameLevel,turn,this.timerDisplay);
+                      this.rankinMessage = rankin === 0 ? '' : `${rankin}位にランクインしました`;
+                      console.log('rankin: '+ rankin);
+                      console.log('userId: '+ userId);
+                      console.log('gameLevel: '+ gameLevel);
+                      console.log('turn: '+ turn);
+                      console.log('this.timerDisplay: '+ this.timerDisplay);
+                    }catch (error) {
+                      console.error('submitForm error:', error);
+                    }
 
                     setTimeout(() => {this.isResultVisible = true;},1000);
                   }else{

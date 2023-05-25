@@ -14,6 +14,7 @@
       :isResultVisible="isResultVisible"
       :displayedTurn="displayedTurn"
       :timerDisplay="timerDisplay"
+      :rankinMessage="rankinMessage"
       :difference="difference"
     />
       <div id="move-box">

@@ -40,6 +40,11 @@ export function formatDate(date) {
   return `${year}/${month}/${day} ${hours}:${minutes}`;
 }
 
+export function timeStringToSeconds(timeString) {
+  const [hours, minutes, seconds] = timeString.split(':').map(parseFloat);
+  return (hours * 3600) + (minutes * 60) + seconds;
+}
+
 export async function getDataLake(){
   const response = await axios.post("http://localhost:3000/dataLake/getDataLake");
         
@@ -51,7 +56,26 @@ export async function getDataLake(){
   }
 }
 
-export function timeStringToSeconds(timeString) {
-  const [hours, minutes, seconds] = timeString.split(':').map(parseFloat);
-  return (hours * 3600) + (minutes * 60) + seconds;
+export async function getRankAtClear(userId,gameLevel,turn,clearTime){
+  let dataLake = null;
+  dataLake = await getDataLake();
+
+  if (dataLake) {
+    return dataLake
+      .filter(game => game.GAME_LEVEL === gameLevel)
+      .sort((a, b) => {
+        if (a.TURNS === b.TURNS) {
+          return timeStringToSeconds(a.CLEAR_TIME) - timeStringToSeconds(b.CLEAR_TIME)
+        } else {
+          return a.TURNS - b.TURNS
+        }
+      })
+      .sort((a, b) => a.INSDATE - b.INSDATE)
+      .findIndex(game => {
+        return game.USER_ID === userId  && game.GAME_LEVEL === gameLevel && game.TURNS === turn && game.CLEAR_TIME === clearTime;
+      }) + 1;
+  } else {
+    // エラーメッセージを表示するなど、登録失敗時の処理を実装
+    console.error("データの取得に失敗しました。");
+  }
 }
