@@ -5,14 +5,13 @@ import axios from "axios";
 let turn = 1;
 let gettingCard = 0;
 
-let shuffledCards = consts.EASY_CARDS_ARR;
+let shuffledCards = null;
 
 let dataLake = null;
 
 export default {
   props: {
     cardsArray: Array,
-    animationDelays: Array,
   },
   data() {
     return {
@@ -29,7 +28,7 @@ export default {
       myBestTime: 0,
       bestTurn: 0,
       bestTime: 0,
-      rankinMessage: 'aaa',
+      rankinMessage: '',
 
       //タイマー処理に使用
       startTime: null,
@@ -40,11 +39,11 @@ export default {
   },
   async mounted() {
     //info-UI設定
-    this.setUIs(consts.GAME_LEVEL_EASY);
+    this.setUIs(this.getDifference());
 
     // ゲーム開始
     // カード配列生成
-    let shuffledCards = util.shuffle(this.cardsArray);
+    shuffledCards = util.shuffle(this.getShuffleCards());
 
     // 表示用カードリストを生成
     for (let i = 0; i < shuffledCards.length; i++) {
@@ -91,7 +90,7 @@ export default {
                     this.stopTimer();
 
                     const userId = sessionStorage.getItem(consts.RES_USER_ID) || "ゲストさん";
-                    const gameLevel = consts.GAME_LEVEL_EASY;
+                    const gameLevel = this.getDifference();
                     try {
                       const response = await axios.post("http://localhost:3000/game/clear", {
                         userId: userId,
@@ -103,11 +102,7 @@ export default {
                       //クリアスコアのランキングを算出
                       let rankin = await util.getRankAtClear(userId,gameLevel,turn,this.timerDisplay);
                       this.rankinMessage = rankin === 0 ? '' : `${rankin}位にランクインしました`;
-                      console.log('rankin: '+ rankin);
-                      console.log('userId: '+ userId);
-                      console.log('gameLevel: '+ gameLevel);
-                      console.log('turn: '+ turn);
-                      console.log('this.timerDisplay: '+ this.timerDisplay);
+                      
                     }catch (error) {
                       console.error('submitForm error:', error);
                     }

@@ -4,7 +4,8 @@ import select from '@/components/pages/select.vue'
 import login from '@/components/pages/login.vue'
 import assigned from '@/components/pages/assigned.vue'
 import ranking from '@/components/pages/ranking.vue'
-import game_easy from '@/components/pages/game/easy.vue'
+import game_easy1 from '@/components/pages/game/easy1.vue'
+import game_easy2 from '@/components/pages/game/easy2.vue'
 import NotFound from '@/components/pages/error/404.vue'
 
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
   { path: '/login', name: 'login', component: login },
   { path: '/assigned', name: 'assigned', component: assigned },
   { path: '/ranking', name: 'ranking', component: ranking },
-  { path: '/game/' + consts.GAME_LEVEL_EASY, name: 'easy', component: game_easy },
+  { path: '/game/' + consts.GAME_LEVEL_EASY_1, name: 'easy1', component: game_easy1 },
+  { path: '/game/' + consts.GAME_LEVEL_EASY_2, name: 'easy2', component: game_easy2 },
   { path: '/:catchAll(.*)', component: NotFound }
 ]
 

@@ -1,22 +1,17 @@
 <template>
   <div id="screen">
-    <GameInfo 
-      :title="difference"
-      :myBestTurn="myBestTurn"
-      :bestTurn="bestTurn"
-      :displayedTurn="displayedTurn"
-      :timerDisplay="timerDisplay"
-    />
-    <div id="game-board">
-      <GameControlUI 
-      :isOverlayVisible="isOverlayVisible"
-      :startGame="startGame"
-      :isResultVisible="isResultVisible"
-      :displayedTurn="displayedTurn"
-      :timerDisplay="timerDisplay"
-      :rankinMessage="rankinMessage"
-      :difference="difference"
-    />
+    <GameTemplate
+    :title="difference"
+    :myBestTurn="myBestTurn"
+    :bestTurn="bestTurn"
+    :displayedTurn="displayedTurn"
+    :timerDisplay="timerDisplay"
+    :isOverlayVisible="isOverlayVisible"
+    :startGame="startGame"
+    :isResultVisible="isResultVisible"
+    :rankinMessage="rankinMessage"
+    :difference="difference"
+  >
       <div id="move-box">
         <div
           v-for="(card, index) in displayedCards"
@@ -35,30 +30,50 @@
           </div>
         </div>
       </div>
-    </div>
+    </GameTemplate>
   </div>
 </template>
 
 <script>
+import GameTemplate from "@/components/common/game/gameTemplate.vue";
 import CardGameMixin from "@/components/pages/game/gameMixin.js";
 import * as consts from '@/assets/js/const.js';
-import GameInfo from '@/components/common/game/gameInfoUI.vue'
-import GameControlUI from '@/components/common/game/gameControlUI.vue'
 
 export default {
   mixins: [CardGameMixin],
-  components: {GameInfo, GameControlUI},
+  components: { GameTemplate },
   data() {
     return {
-      difference: consts.GAME_LEVEL_EASY,
-      cardsArray: consts.EASY_CARDS_ARR,
+      difference: consts.GAME_LEVEL_EASY_1,
     };
+  },
+  methods: {
+    getDifference() {
+      return consts.GAME_LEVEL_EASY_1;
+    },
+    getShuffleCards() {
+      return consts.EASY_1_CARDS_ARR;
+    },
   },
 };
 </script>
 
 <style>
 /* この難易度固有のスタイルを記載 */
+#title-text {
+  color: #527558;
+  font-size: 60px; 
+  text-align: left;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  font-family: 'toroman';
+  stroke: 1px #333;
+}
+
+.card__face {
+  border: solid 5px #94CE90 ;
+}
+
 #move-box {
   height: 400px;
   width: 400px;

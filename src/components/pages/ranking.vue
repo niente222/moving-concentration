@@ -3,19 +3,19 @@
     <h1>ランキング</h1>
     <div class="button-container">
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-easy-button">Easy 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-easy-button">Easy 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-easy-button">Easy 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-easy-button">Easy 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY_2)" class="rank-select-button rank-select-easy-button">Easy 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-easy-button">Easy 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-nomal-button">Normal 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-nomal-button">Normal 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-nomal-button">Normal 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-nomal-button">Normal 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_1)" class="rank-select-button rank-select-nomal-button">Normal 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-nomal-button">Normal 3</button>
       </div>
       <div class="button-row">
-        <button @click="changeDifficulty(GAME_LEVEL_EASY)" class="rank-select-button rank-select-hard-button">Hard 1</button>
-        <button @click="changeDifficulty(GAME_LEVEL_NOMAL)" class="rank-select-button rank-select-hard-button">Hard 2</button>
-        <button @click="changeDifficulty(GAME_LEVEL_HARD)" class="rank-select-button rank-select-hard-button">Hard 3</button>
+        <button @click="changeDifficulty(GAME_LEVEL_EASY_1)" class="rank-select-button rank-select-hard-button">Hard 1</button>
+        <button @click="changeDifficulty(GAME_LEVEL_NOMAL_1)" class="rank-select-button rank-select-hard-button">Hard 2</button>
+        <button @click="changeDifficulty(GAME_LEVEL_HARD_1)" class="rank-select-button rank-select-hard-button">Hard 3</button>
       </div>
     </div>
     <p>{{ rankingTitle }}</p>
@@ -50,16 +50,17 @@ export default {
     return {
       rankingData: [],
       rankingTitle: '',
-      GAME_LEVEL_EASY: consts.GAME_LEVEL_EASY,
-      GAME_LEVEL_NOMAL: consts.GAME_LEVEL_NOMAL,
-      GAME_LEVEL_HARD: consts.GAME_LEVEL_HARD
+      GAME_LEVEL_EASY_1: consts.GAME_LEVEL_EASY_1,
+      GAME_LEVEL_EASY_2: consts.GAME_LEVEL_EASY_2,
+      GAME_LEVEL_NOMAL_1: consts.GAME_LEVEL_NOMAL_1,
+      GAME_LEVEL_HARD_1: consts.GAME_LEVEL_HARD_1
     };
   },
   async mounted() {
     try {
         dataLake = await util.getDataLake();
         if (dataLake) {
-          this.changeDifficulty(consts.GAME_LEVEL_EASY);
+          this.changeDifficulty(consts.GAME_LEVEL_EASY_1);
           } else {
             // エラーメッセージを表示するなど、登録失敗時の処理を実装
             console.error("データの取得に失敗しました。");

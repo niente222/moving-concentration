@@ -38,16 +38,26 @@ export const VALID_MESSAGE_LOGIN_FAILURE = `ログインに失敗しました`;
 
 
 //------------ゲームの難易度------------------------------------------
-export const GAME_LEVEL_EASY = `EASY`;
-export const GAME_LEVEL_NOMAL = `NOMAL`;
+export const GAME_LEVEL_EASY_1 = `EASY1`;
+export const GAME_LEVEL_EASY_2 = `EASY2`;
+export const GAME_LEVEL_NOMAL_1 = `NOMAL1`;
 
 //------------初期カード配列------------------------------------------
 //EASY
-export const EASY_CARDS_ARR = [
-  { number: "1", posX: 100 , posY: 100 , speed: 1 },
-  { number: "1", posX: 200 , posY: 100 , speed: 1 },
-  { number: "2", posX: 100 , posY: 250 , speed: 1 },
-  { number: "2", posX: 200 , posY: 250 , speed: 1 },
+export const EASY_1_CARDS_ARR = [
+  { number: "1"},
+  { number: "1"},
+  { number: "2"},
+  { number: "2"},
+];
+
+export const EASY_2_CARDS_ARR = [
+  { number: "1"},
+  { number: "1"},
+  { number: "2"},
+  { number: "2"},
+  { number: "3"},
+  { number: "3"},
 ];
 
 

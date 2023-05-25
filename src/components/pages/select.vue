@@ -2,10 +2,10 @@
   <div class="difficulty-selection">
     <h1>難易度選択</h1>
     <div class="difficulty-level">
-      <router-link to="/game/EASY">
+      <router-link to="/game/EASY1">
         <button class="difficulty-button difficulty-easy-button" id="easy1">EASY 1</button>
       </router-link>
-      <router-link to="/game/easy2">
+      <router-link to="/game/EASY2">
         <button class="difficulty-button difficulty-easy-button" id="easy2">EASY 2</button>
       </router-link>
       <router-link to="/game/easy3">
