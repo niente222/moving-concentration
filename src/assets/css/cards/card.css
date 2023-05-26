@@ -46,6 +46,10 @@
   .card__face_normal {
     border : solid 5px #7fbfff ;
   }
+
+  .card__face_hard {
+    border : solid 5px #fa8d8d ;
+  }
   
   .card.is-flipped .card__face--back {
     transform: rotateY(180deg);

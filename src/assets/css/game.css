@@ -19,6 +19,10 @@
     color: #4747a7;
   }
   
+  .title-text-hard{
+    color: #e45454;
+  }
+
   #info-container {
     background-color: #ddbb99;
     display: grid;
