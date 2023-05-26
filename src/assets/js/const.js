@@ -108,3 +108,19 @@ export const NORMAL_2_CARDS_ARR = [
   { number: "6" },
   { number: "6" },
 ];
+
+
+export const NORMAL_3_CARDS_ARR = [
+  { number: "1"},
+  { number: "1" },
+  { number: "2" },
+  { number: "2" },
+  { number: "3" },
+  { number: "3" },
+  { number: "4" },
+  { number: "4" },
+  { number: "5" },
+  { number: "5" },
+  { number: "6" },
+  { number: "6" },
+];
