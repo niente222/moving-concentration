@@ -11,6 +11,7 @@ import game_normal1 from '@/components/pages/game/normal1.vue'
 import game_normal2 from '@/components/pages/game/normal2.vue'
 import game_normal3 from '@/components/pages/game/normal3.vue'
 import game_hard1 from '@/components/pages/game/hard1.vue'
+import game_hard2 from '@/components/pages/game/hard2.vue'
 import NotFound from '@/components/pages/error/404.vue'
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
   { path: '/game/' + consts.GAME_LEVEL_NORMAL_2, name: 'normal2', component: game_normal2 },
   { path: '/game/' + consts.GAME_LEVEL_NORMAL_3, name: 'normal3', component: game_normal3 },
   { path: '/game/' + consts.GAME_LEVEL_HARD_1, name: 'hard1', component: game_hard1 },
+  { path: '/game/' + consts.GAME_LEVEL_HARD_2, name: 'hard2', component: game_hard2 },
   { path: '/:catchAll(.*)', component: NotFound }
 ]
 
