@@ -10,6 +10,14 @@
     font-family: 'toroman';
     stroke: 1px #333;
   }
+
+  .title-text-easy{
+    color: #527558;
+  }
+
+  .title-text-normal{
+    color: #4747a7;
+  }
   
   #info-container {
     background-color: #ddbb99;

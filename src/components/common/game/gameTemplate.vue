@@ -6,6 +6,7 @@
       :bestTurn="bestTurn"
       :displayedTurn="displayedTurn"
       :timerDisplay="timerDisplay"
+      :difference="difference"
     />
     <div id="game-board">
       <GameControlUI 

@@ -13,14 +13,14 @@
       </router-link>
     </div>
     <div class="difficulty-level">
-      <router-link to="/game/NOMAL1">
-        <button class="difficulty-button difficulty-nomal-button" id="normal1">NORMAL 1</button>
+      <router-link to="/game/NORMAL1">
+        <button class="difficulty-button difficulty-normal-button" id="normal1">NORMAL 1</button>
       </router-link>
-      <router-link to="/game/NOMAL2">
-        <button class="difficulty-button difficulty-nomal-button" id="normal2">NORMAL 2</button>
+      <router-link to="/game/NORMAL2">
+        <button class="difficulty-button difficulty-normal-button" id="normal2">NORMAL 2</button>
       </router-link>
-      <router-link to="/game/NOMAL3">
-        <button class="difficulty-button difficulty-nomal-button" id="normal3">NORMAL 3</button>
+      <router-link to="/game/NORMAL3">
+        <button class="difficulty-button difficulty-normal-button" id="normal3">NORMAL 3</button>
       </router-link>
     </div>
     <div class="difficulty-level">

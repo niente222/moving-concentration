@@ -41,9 +41,9 @@ export const VALID_MESSAGE_LOGIN_FAILURE = `ログインに失敗しました`;
 export const GAME_LEVEL_EASY_1 = `EASY1`;
 export const GAME_LEVEL_EASY_2 = `EASY2`;
 export const GAME_LEVEL_EASY_3 = `EASY3`;
-export const GAME_LEVEL_NOMAL_1 = `NOMAL1`;
-export const GAME_LEVEL_NOMAL_2 = `NOMAL2`;
-export const GAME_LEVEL_NOMAL_3 = `NOMAL3`;
+export const GAME_LEVEL_NORMAL_1 = `NORMAL1`;
+export const GAME_LEVEL_NORMAL_2 = `NORMAL2`;
+export const GAME_LEVEL_NORMAL_3 = `NORMAL3`;
 export const GAME_LEVEL_HARD_1 = `HARD1`;
 export const GAME_LEVEL_HARD_2 = `HARD2`;
 export const GAME_LEVEL_HARD_3 = `HARD3`;
@@ -78,8 +78,8 @@ export const EASY_3_CARDS_ARR = [
 ];
 
 
-//NOMAL
-export const NOMAL_CARDS_ARR = [
+//NORMAL
+export const NORMAL_1_CARDS_ARR = [
   { number: "1"},
   { number: "1" },
   { number: "2" },
@@ -88,4 +88,8 @@ export const NOMAL_CARDS_ARR = [
   { number: "3" },
   { number: "4" },
   { number: "4" },
+  { number: "5" },
+  { number: "5" },
+  { number: "6" },
+  { number: "6" },
 ];

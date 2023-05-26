@@ -7,6 +7,7 @@ import ranking from '@/components/pages/ranking.vue'
 import game_easy1 from '@/components/pages/game/easy1.vue'
 import game_easy2 from '@/components/pages/game/easy2.vue'
 import game_easy3 from '@/components/pages/game/easy3.vue'
+import game_normal1 from '@/components/pages/game/normal1.vue'
 import NotFound from '@/components/pages/error/404.vue'
 
 const routes = [
@@ -18,6 +19,7 @@ const routes = [
   { path: '/game/' + consts.GAME_LEVEL_EASY_1, name: 'easy1', component: game_easy1 },
   { path: '/game/' + consts.GAME_LEVEL_EASY_2, name: 'easy2', component: game_easy2 },
   { path: '/game/' + consts.GAME_LEVEL_EASY_3, name: 'easy3', component: game_easy3 },
+  { path: '/game/' + consts.GAME_LEVEL_NORMAL_1, name: 'normal1', component: game_normal1 },
   { path: '/:catchAll(.*)', component: NotFound }
 ]
 

@@ -25,8 +25,8 @@
             :data-card-id="card.id"
             @click="onCardClick"
           >
-            <div class="card__face card__face--back"></div>
-            <div class="card__face card__face--front"></div>
+            <div class="card__face card__face_easy card__face--back"></div>
+            <div class="card__face card__face_easy card__face--front"></div>
           </div>
         </div>
       </div>
@@ -248,14 +248,4 @@ export default {
     transform: translateY(0) translateX(-230px);
   }
 }
-</style>
-
-<style>
-  #title-text {
-    color: #527558;
-  }
-
-  .card__face {
-    border: solid 5px #94CE90 ;
-  }
 </style>

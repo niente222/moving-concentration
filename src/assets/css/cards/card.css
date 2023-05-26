@@ -38,6 +38,14 @@
     line-height:100px;
     transform: rotateY(180deg);
   }
+
+  .card__face_easy {
+    border: solid 5px #94CE90 ;
+  }
+
+  .card__face_normal {
+    border : solid 5px #7fbfff ;
+  }
   
   .card.is-flipped .card__face--back {
     transform: rotateY(180deg);
