@@ -38,10 +38,10 @@ app.use('/dataLake', dataLakeRoutes);
 
 lex.onRequest = app;
 
-lex.listen([80], [443, 5001], function () {
+/*lex.listen([80], [443, 5001], function () {
   var protocol = ('requestCert' in this) ? 'https': 'http';
   console.log("Listening at " + protocol + '://localhost:' + this.address().port);
-});
+});*/
 
 app.set('trust proxy', 1)
 app.use(
