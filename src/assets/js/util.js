@@ -46,7 +46,7 @@ export function timeStringToSeconds(timeString) {
 }
 
 export async function getDataLake(){
-  const response = await axios.post("http://localhost:3000/dataLake/getDataLake");
+  const response = await axios.post("http://www.ugoku-sinkesuijaku.com:3000/dataLake/getDataLake");
         
   if (response.data.success) {
     return response.data.ranking_data;

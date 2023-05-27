@@ -38,7 +38,7 @@ app.use('/dataLake', dataLakeRoutes);
 
 lex.onRequest = app;
 
-/*lex.listen([80], [443, 5001], function () {
+/*lex.listen([8080], [443, 5001], function () {
   var protocol = ('requestCert' in this) ? 'https': 'http';
   console.log("Listening at " + protocol + '://localhost:' + this.address().port);
 });*/
