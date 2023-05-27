@@ -8,7 +8,9 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   transpileDependencies: true,
   devServer: {
-    disableHostCheck: true
+    allowedHosts: [
+      'www.ugoku-sinkesuijaku.com',
+    ],
   },
   configureWebpack: {
     resolve: {
