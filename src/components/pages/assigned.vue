@@ -10,7 +10,7 @@
 <script>
   import AccountSubmitForm from '@/components/common/accountSubmitForm.vue';
   import axios from "axios";
-  import {RES_USER_ID,RES_TOKEN} from '@/assets/js/const.js';
+  import * as consts from "@/assets/js/const.js";
 
   export default {
     name: 'assigned',
@@ -41,8 +41,8 @@
             console.log("ユーザー登録に成功しました。");
 
             //ローカルストレージにトークンを保存
-            sessionStorage.setItem(RES_USER_ID, response.data.user_id);
-            sessionStorage.setItem(RES_TOKEN, response.data.token);
+            sessionStorage.setItem(consts.RES_USER_ID, response.data.user_id);
+            sessionStorage.setItem(consts.RES_TOKEN, response.data.token);
             
             // ミューテーションを呼び出して、ストアのisLoginFlgを更新
             this.$store.commit("setIsLoginFlg", true);
