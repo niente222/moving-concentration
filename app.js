@@ -9,7 +9,7 @@ import gameRoutes from './src/routes/game.js';
 import dataLakeRoutes from './src/routes/dataLake.js';
 
 
-var DOMAIN = 'localhost';
+var DOMAIN = 'www.ugoku-sinkesuijaku.com';
 var EMAIL = 'nienteyuta`gmail.com';
 
 var lex = LEX.create({
@@ -38,10 +38,10 @@ app.use('/dataLake', dataLakeRoutes);
 
 lex.onRequest = app;
 
-/*lex.listen([8080], [443, 5001], function () {
+lex.listen([8080], [443, 5001], function () {
   var protocol = ('requestCert' in this) ? 'https': 'http';
   console.log("Listening at " + protocol + '://localhost:' + this.address().port);
-});*/
+});
 
 app.set('trust proxy', 1)
 app.use(
