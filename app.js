@@ -1,30 +1,15 @@
 import dotenv from 'dotenv';
+import https from 'https';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import express from 'express';
 import cookieSession from'cookie-session';
 import cors from "cors";
 import { homedir } from 'os';
-import LEX from 'letsencrypt-express';
 import authRoutes from './src/routes/auth.js';
 import gameRoutes from './src/routes/game.js';
 import dataLakeRoutes from './src/routes/dataLake.js';
-
-
-var DOMAIN = 'www.ugoku-sinkesuijaku.com';
-var EMAIL = 'nienteyuta`gmail.com';
-
-var lex = LEX.create({
-  configDir: homedir() + '/letsencrypt/etc',
-  server: 'staging',  // テスト環境の場合
-  approveRegistration: function (hostname, approve) { // leave `null` to disable automatic registration
-    if (hostname === DOMAIN) { // Or check a database or list of allowed domains
-      approve(null, {
-        domains: [DOMAIN]
-      , email: EMAIL
-      , agreeTos: true
-      });
-    }
-  }
-});
 
 dotenv.config();
 const app = express();
@@ -35,13 +20,6 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/game', gameRoutes);
 app.use('/dataLake', dataLakeRoutes);
-
-lex.onRequest = app;
-
-lex.listen([8080], [443, 5001], function () {
-  var protocol = ('requestCert' in this) ? 'https': 'http';
-  console.log("Listening at " + protocol + '://localhost:' + this.address().port);
-});
 
 app.set('trust proxy', 1)
 app.use(
@@ -67,3 +45,16 @@ app.use(function(err, req, res, next) {
     console.error(err.stack);
     res.status(500).send('Internal Server Error');
   });
+
+var options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/www.ugoku-sinkesuijaku.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/www.ugoku-sinkesuijaku.com/fullchain.pem'),
+}
+
+var server = https.createServer(options, app);
+
+server.listen(443, function() {
+  process.setuid && process.setuid('node');
+  console.log(`user was replaced to uid: ${process.getuid()} ('node')`);
+  console.log('example app listening on port 443!');
+});
