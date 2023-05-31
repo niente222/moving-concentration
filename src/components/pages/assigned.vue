@@ -25,7 +25,7 @@
     methods: {
       async submitForm(payload) {
         try {
-          const response = await axios.post("http://" + consts.IP_ADDRESS + ":3000/auth/assigned", {
+          const response = await axios.post("https://" + consts.IP_ADDRESS + "/auth/assigned", {
             userId: payload.userId,
             password: payload.password,
           });
