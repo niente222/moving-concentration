@@ -67,7 +67,7 @@ export async function getDataLake(){
     console.log(error.config);
   });
 
-  console.error("err: " + response.data.err);
+  console.error("err: \\o",response);
         
   if (response.data.success) {
     return response.data.ranking_data;

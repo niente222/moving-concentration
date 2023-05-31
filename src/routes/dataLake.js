@@ -9,10 +9,7 @@ router.post('/getDataLake', async (req, res) => {
 
         db.query(sql,(err, results) => {
         if (err) {
-            res.json({
-            success: false,
-            err: err
-        });
+            res.status(500).send(err);
         } else {
             //フロントにjson形式でデータを送信
             res.json({
