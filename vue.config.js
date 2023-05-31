@@ -19,4 +19,9 @@ export default defineConfig({
       },
     },
   },
+  pages: {
+    index: {
+      title: '動く神経衰弱',
+    },
+  },
 });
