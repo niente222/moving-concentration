@@ -92,7 +92,7 @@ export default {
                     const userId = sessionStorage.getItem(consts.RES_USER_ID) || "ゲストさん";
                     const gameLevel = this.getDifference();
                     try {
-                      const response = await axios.post("https://" + consts.IP_ADDRESS + "/game/clear", {
+                      const response = await axios.post("https://" + consts.IP_ADDRESS + ":3000/game/clear", {
                         userId: userId,
                         gameLevel: gameLevel,
                         turn: turn,
