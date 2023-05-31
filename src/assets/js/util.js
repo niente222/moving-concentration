@@ -46,28 +46,14 @@ export function timeStringToSeconds(timeString) {
 }
 
 export async function getDataLake(){
-  const response = await axios.post("https://" + consts.IP_ADDRESS + ":3000/dataLake/getDataLake")
-  .then((response) => {
-    // ここで成功時の処理を行います
-
-  console.error("err2: \\o",response);
-  })
-  .catch((error) => {
-    console.log("error:" + error);
-    if (error.response) {
-      // サーバーからエラーレスポンスが返された場合、ここが実行されます
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-    } else if (error.request) {
-      // リクエストは発行されたがレスポンスがない場合、ここが実行されます
-      console.log(error.request);
-    } else {
-      // 何らかの原因でリクエストが発行されなかった場合、ここが実行されます
-      console.log('Error', error.message);
-    }
-    console.log(error.config);
-  });
+  const response = await axios.post("https://" + consts.IP_ADDRESS + ":3000/dataLake/getDataLake");
+        
+  if (response.data.success) {
+    return response.data.ranking_data;
+  } else {
+    console.error("データの取得に失敗しました。");
+    return null
+  }
 }
 
 export async function getRankAtClear(userId,gameLevel,turn,clearTime){
