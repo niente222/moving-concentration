@@ -49,13 +49,6 @@ export async function getDataLake(){
   const response = await axios.post("https://" + consts.IP_ADDRESS + "/dataLake/getDataLake")
   .then((response) => {
     // ここで成功時の処理を行います
-    if (response.data.success) {
-      return response.data.ranking_data;
-    } else {
-      console.error("データの取得に失敗しました。");
-      console.error("err: " + response.data.err);
-      return null
-    }
   })
   .catch((error) => {
     console.log("error:" + error);
@@ -72,8 +65,16 @@ export async function getDataLake(){
       console.log('Error', error.message);
     }
     console.log(error.config);
-  });   
-  
+  });
+
+  console.error("err: " + response.data.err);
+        
+  if (response.data.success) {
+    return response.data.ranking_data;
+  } else {
+    console.error("データの取得に失敗しました。");
+    return null
+  }
 }
 
 export async function getRankAtClear(userId,gameLevel,turn,clearTime){
