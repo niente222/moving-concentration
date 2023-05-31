@@ -42,6 +42,9 @@ export const greetingValidMessageDuplication = (colName) => {
 //ユーザーIDが存在しない、パスワードが違うなど
 export const VALID_MESSAGE_LOGIN_FAILURE = `ログインに失敗しました`;
 
+//予期せぬエラー
+export const VALID_MESSAGE_UNEXPECTED_ERROR = `予期せぬエラーが発生しました`;
+
 
 //------------ゲームの難易度------------------------------------------
 export const GAME_LEVEL_EASY_1 = `EASY1`;

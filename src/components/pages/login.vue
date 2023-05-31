@@ -33,27 +33,22 @@
         //入力チェックエラーがある場合、エラーメッセージを設定し処理を終了
         if(response.data.validMessage){
             //★エラーメッセージが複数ある場合は全部出す？
-            this.errorMessage = response.data.validMessage[0];
+            this.errorMessage = response.data.validMessage;
             return;
-          }
-
-        if (response.data.success) {
-            // 登録成功時の処理を実装
-            console.log("ログインに成功しました。");
-            sessionStorage.setItem(consts.RES_USER_ID, response.data.user_id);
-            sessionStorage.setItem(consts.RES_TOKEN, response.data.token);
-            
-            // ミューテーションを呼び出して、ストアのisLoginFlgを更新
-            this.$store.commit("setIsLoginFlg", true);
-            
-            //セレクト画面にリダイレクト
-            this.$router.push("/game/select");
-          } else {
-            // エラーメッセージを表示するなど、登録失敗時の処理を実装
-            console.error("ユーザー登録に失敗しました。");
-          }
+        }else if (response.data.success) {
+          // 登録成功時の処理を実装
+          console.log("ログインに成功しました。");
+          sessionStorage.setItem(consts.RES_USER_ID, response.data.user_id);
+          sessionStorage.setItem(consts.RES_TOKEN, response.data.token);
+          
+          // ミューテーションを呼び出して、ストアのisLoginFlgを更新
+          this.$store.commit("setIsLoginFlg", true);
+          
+          //セレクト画面にリダイレクト
+          this.$router.push("/game/select");
+        }
       } catch (error) {
-        console.error('submitForm error:', error);
+            this.errorMessage = push(consts.VALID_MESSAGE_UNEXPECTED_ERROR);
       }
     }
   }

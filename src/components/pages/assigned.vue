@@ -34,9 +34,7 @@
           if(response.data.validMessage){
             this.errorMessage = response.data.validMessage;
             return;
-          }
-
-          if (response.data.success) {
+          }else if (response.data.success) {
             // 登録成功時の処理を実装
             console.log("ユーザー登録に成功しました。");
 
@@ -49,13 +47,9 @@
 
             //セレクト画面にリダイレクト
             this.$router.push("/game/select");
-
-          } else {
-            // エラーメッセージを表示するなど、登録失敗時の処理を実装
-            console.error("ユーザー登録に失敗しました。" + response.data);
           }
         } catch (error) {
-          console.error("通信エラー:", error);
+            this.errorMessage = push(consts.VALID_MESSAGE_UNEXPECTED_ERROR);
         }
       },
     },
