@@ -49,6 +49,8 @@ export async function getDataLake(){
   const response = await axios.post("https://" + consts.IP_ADDRESS + "/dataLake/getDataLake")
   .then((response) => {
     // ここで成功時の処理を行います
+
+  console.error("err: \\o",response);
   })
   .catch((error) => {
     console.log("error:" + error);
@@ -66,15 +68,6 @@ export async function getDataLake(){
     }
     console.log(error.config);
   });
-
-  console.error("err: \\o",response);
-        
-  if (response.data.success) {
-    return response.data.ranking_data;
-  } else {
-    console.error("データの取得に失敗しました。");
-    return null
-  }
 }
 
 export async function getRankAtClear(userId,gameLevel,turn,clearTime){
