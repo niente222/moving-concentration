@@ -65,12 +65,13 @@ export async function getDataLake(){
     }
     console.log(error.config);
   });
+
+  console.error("err: " + response.data.err);
         
   if (response.data.success) {
     return response.data.ranking_data;
   } else {
     console.error("データの取得に失敗しました。");
-    console.error("err: " + response.data.err);
     return null
   }
 }
