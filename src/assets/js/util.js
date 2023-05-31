@@ -46,7 +46,7 @@ export function timeStringToSeconds(timeString) {
 }
 
 export async function getDataLake(){
-  const response = await axios.post("https://" + consts.IP_ADDRESS + "/dataLake/getDataLake")
+  const response = await axios.post("https://" + consts.IP_ADDRESS + ":3000/dataLake/getDataLake")
   .then((response) => {
     // ここで成功時の処理を行います
 
