@@ -43,7 +43,7 @@ var options = {
 
 var server = https.createServer(options, app);
 
-server.listen(443, function() {
+server.listen(3000, () => {
   process.setuid && process.setuid('ec2-user');
   console.log(`user was replaced to uid: ${process.getuid()} ('ec2-user')`);
   console.log('example app listening on port 443!');
