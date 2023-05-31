@@ -46,7 +46,25 @@ export function timeStringToSeconds(timeString) {
 }
 
 export async function getDataLake(){
-  const response = await axios.post("https://" + consts.IP_ADDRESS + "/dataLake/getDataLake");
+  const response = await axios.post("https://" + consts.IP_ADDRESS + "/dataLake/getDataLake")
+  .then((response) => {
+    // ここで成功時の処理を行います
+  })
+  .catch((error) => {
+    if (error.response) {
+      // サーバーからエラーレスポンスが返された場合、ここが実行されます
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // リクエストは発行されたがレスポンスがない場合、ここが実行されます
+      console.log(error.request);
+    } else {
+      // 何らかの原因でリクエストが発行されなかった場合、ここが実行されます
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });
         
   if (response.data.success) {
     return response.data.ranking_data;
