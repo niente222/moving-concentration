@@ -7,8 +7,10 @@ router.post('/getDataLake', async (req, res) => {
         //受信したユーザーIDと難易度をもとにGAMESテーブルにデータ追加
         const sql = 'SELECT * FROM GAMES_T';
 
+        console.error("aaa");
         db.query(sql,(err, results) => {
         if (err) {
+            console.error("err: \\o",err);
             res.status(500).send(err);
         } else {
             //フロントにjson形式でデータを送信

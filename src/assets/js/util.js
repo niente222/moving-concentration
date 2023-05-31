@@ -50,7 +50,7 @@ export async function getDataLake(){
   .then((response) => {
     // ここで成功時の処理を行います
 
-  console.error("err: \\o",response);
+  console.error("err2: \\o",response);
   })
   .catch((error) => {
     console.log("error:" + error);
