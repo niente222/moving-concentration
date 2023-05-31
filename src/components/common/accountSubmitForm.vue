@@ -30,7 +30,7 @@
                 required: true
             },
             errorMessage: {
-                type: String, 
+                type: Array, 
                 default: ""   
             }
         },
