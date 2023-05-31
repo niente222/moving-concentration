@@ -31,7 +31,7 @@
             },
             errorMessage: {
                 type: Array, 
-                default: ""   
+                default: () => []   
             }
         },
         data() {
