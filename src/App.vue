@@ -11,7 +11,6 @@
       </div>
     </div>
   </div>
-  <div id="twitter-timeline"></div>
   <myFooter />
 </template>
 

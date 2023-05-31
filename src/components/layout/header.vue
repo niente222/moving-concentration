@@ -1,7 +1,9 @@
 <template>
     <header class="site-header">
       <div class="site-header__wrapper">
-        <a href="/game/select" class="title">動く神経衰弱</a>
+        <a href="/game/select" class="logo">
+            <img :src="require('@/assets/images/sinkesuijaku_logo.png')" alt="動く神経衰弱">
+        </a>
         <div class="header-link-component">
           <div v-if="isLoginFlg">
             <div class="login-user-text" >ログイン： {{ loginUserName }}</div>

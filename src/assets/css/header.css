@@ -27,3 +27,8 @@
 .header-link-component{
     margin-left: auto;
 }
+
+.logo {
+    width: 250px;
+    height: 60px; 
+}
