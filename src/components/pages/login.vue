@@ -48,7 +48,7 @@
           this.$router.push("/game/select");
         }
       } catch (error) {
-            this.errorMessage = push(consts.VALID_MESSAGE_UNEXPECTED_ERROR);
+            this.errorMessage.push(consts.VALID_MESSAGE_UNEXPECTED_ERROR);
       }
     }
   }
