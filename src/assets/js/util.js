@@ -53,6 +53,7 @@ export async function getDataLake(){
       return response.data.ranking_data;
     } else {
       console.error("データの取得に失敗しました。");
+      console.error("err: " + response.data.err);
       return null
     }
   })
@@ -71,7 +72,8 @@ export async function getDataLake(){
       console.log('Error', error.message);
     }
     console.log(error.config);
-  });
+  });   
+  
 }
 
 export async function getRankAtClear(userId,gameLevel,turn,clearTime){
