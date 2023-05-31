@@ -52,6 +52,7 @@ export async function getDataLake(){
     return response.data.ranking_data;
   } else {
     console.error("データの取得に失敗しました。");
+    console.error("err: " + response.data.err);
     return null
   }
 }
