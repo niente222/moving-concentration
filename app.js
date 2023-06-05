@@ -44,6 +44,11 @@ var options = {
 var server = https.createServer(options, app);
 
 server.listen(3000, () => {
+  console.log('process.env.DB_HOST: ' + process.env.DB_HOST);
+  console.log('process.env.DB_USER: ' + process.env.DB_USER);
+  console.log('process.env.DB_PASSWORD: ' + process.env.DB_PASSWORD);
+  console.log('process.env.DB_DATABASE: ' + process.env.DB_DATABASE);
+
   process.setuid && process.setuid('ec2-user');
   console.log(`user was replaced to uid: ${process.getuid()} ('ec2-user')`);
   console.log('example app listening on port 443!');
