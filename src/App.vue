@@ -33,7 +33,7 @@
     anchor.setAttribute('class', 'twitter-timeline');
     anchor.setAttribute('data-theme', 'light');
     anchor.setAttribute('href', 'https://twitter.com/niente47420491');
-    anchor.innerText = 'Tweets by your_username';
+    anchor.innerText = 'Tweets by niente';
     document.getElementById('twitter-timeline').appendChild(anchor);
   }
   };
